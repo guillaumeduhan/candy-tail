@@ -1,13 +1,18 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import type { NextApiRequest, NextApiResponse } from 'next'
+import fs from 'fs';
 
-type Data = {
-  name: string
-}
+import type { NextApiRequest, NextApiResponse } from 'next';
 
-export default function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<Data>
-) {
-  res.status(200).json({ name: 'John Doe' })
+export default function handler(req: NextApiRequest, res: NextApiResponse) {
+  let file: string;
+  const { framework, name, extension } = req.query;
+
+  file = fs.readFileSync(
+    `public/${framework || 'react'}/${name || 'Button'}.${extension || 'tsx'}`,
+    {
+      encoding: 'utf8'
+    }
+  );
+
+  res.status(200).json({ file });
 }

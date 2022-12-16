@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;800&display=swap');
+@import './material.scss';
+@import './owl.scss';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  .desc {
+    @apply text-base text-slate-400 mb-6;
+  }
+
+  .border-astro {
+    @apply border-primary-200 dark:border-primary-900/30;
+  }
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+}
+
+.selected {
+  @apply text-primary-600;
+}
