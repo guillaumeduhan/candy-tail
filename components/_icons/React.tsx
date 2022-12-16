@@ -1,6 +1,6 @@
 'use client';
 
-export function React(props: SVGProps<SVGSVGElement>) {
+export function ReactIcon(props: any) {
   return (
     <svg width="24px" height="24px" viewBox="0 0 2048 2048" {...props}>
       <path

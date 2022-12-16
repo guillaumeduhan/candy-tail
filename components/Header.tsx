@@ -6,14 +6,17 @@ import { Sun } from './_icons/Sun';
 
 export default function Header() {
   const size = '28px';
-  const [theme, setTheme] = useState<any>(localStorage.getItem('theme'));
+  const [theme, setTheme] = useState<any>('light');
   const colorTheme = theme === 'dark' ? 'light' : 'dark';
 
   useEffect(() => {
     const root = window.document.documentElement;
     root.classList.remove(colorTheme);
     root.classList.add(theme);
-    localStorage.setItem('theme', theme);
+    if (localStorage) {
+      setTheme(localStorage.getItem('theme'));
+      localStorage.setItem('theme', theme);
+    }
   }, [theme]);
 
   const switchTheme = () => {

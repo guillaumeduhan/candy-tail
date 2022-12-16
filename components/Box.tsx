@@ -1,9 +1,9 @@
 'use client';
 
-import { ReactNode, useEffect, useState } from 'react';
+import React, { ReactNode, useEffect, useState } from 'react';
 import Prism from 'prismjs';
 import { Copy } from './_icons/Copy';
-import { React } from './_icons/React';
+import { ReactIcon } from './_icons/React';
 import { Vue } from './_icons/Vue';
 
 interface Content {
@@ -15,7 +15,7 @@ export default function Box({
   children,
   content
 }: {
-  children: ReactNode;
+  children: React.ReactNode;
   content: Content;
 }) {
   const { title, description } = content;
@@ -56,7 +56,7 @@ export default function Box({
           <pre className="whitespace-pre-wrap">
             <code dangerouslySetInnerHTML={{ __html: htmlCode }} />
             <div className="absolute flex cursor-pointer bottom-6 right-6">
-              <React
+              <ReactIcon
                 onClick={() => {
                   setExtension('tsx');
                   setFramework('react');
